@@ -1,61 +1,18 @@
-import { Component, PropsWithChildren } from 'react'
-import { View, Button, Text } from '@tarojs/components'
-import { observer, inject } from 'mobx-react'
+import {Button, Text, View} from "@tarojs/components";
+import UserInfo from "../../store/userInfo";
+import {observer} from "mobx-react";
 
-import './index.scss'
-
-type PageStateProps = {
-  store: {
-    counterStore: {
-      counter: number,
-      increment: Function,
-      decrement: Function,
-      incrementAsync: Function
-    }
-  }
-}
-
-interface Index {
-  props: PageStateProps;
-}
-
-@inject('store')
-@observer
-class Index extends Component<PropsWithChildren> {
-  componentDidMount () { }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  increment = () => {
-    const { counterStore } = this.props.store
-    counterStore.increment()
-  }
-
-  decrement = () => {
-    const { counterStore } = this.props.store
-    counterStore.decrement()
-  }
-
-  incrementAsync = () => {
-    const { counterStore } = this.props.store
-    counterStore.incrementAsync()
-  }
-
-  render () {
-    const { counterStore: { counter } } = this.props.store
-    return (
-      <View className='index'>
-        <Button onClick={this.increment}>+</Button>
-        <Button onClick={this.decrement}>-</Button>
-        <Button onClick={this.incrementAsync}>Add Async</Button>
-        <Text>{counter}</Text>
-      </View>
-    )
-  }
-}
+const Index = observer(() => {
+  return <View>
+    <Text>{UserInfo.userInfo.username}{UserInfo.userInfo.age}</Text>
+    <Button onClick={()=> {
+      UserInfo.setUserInfo({
+        username: '12',
+        email: "21",
+        age: 12
+      })
+    }}>按钮</Button>
+  </View>
+})
 
 export default Index

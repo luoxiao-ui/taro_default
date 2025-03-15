@@ -1,16 +1,17 @@
 import { Component, PropsWithChildren } from 'react'
-import { Provider } from 'mobx-react'
-
-import counterStore from './store/counter'
-
+import {Provider} from 'mobx-react'
 import './app.scss'
-
-const store = {
-  counterStore
-}
+import UserInfo from "./store/userInfo";
+import Taro from "@tarojs/taro";
 
 class App extends Component<PropsWithChildren> {
-  componentDidMount () {}
+  componentDidMount () {
+    if(!UserInfo.userInfo.username) {
+      Taro.redirectTo({
+        url: 'pages/login/login'
+      })
+    }
+  }
 
   componentDidShow () {}
 
@@ -19,7 +20,7 @@ class App extends Component<PropsWithChildren> {
   // this.props.children 就是要渲染的页面
   render () {
     return (
-      <Provider store={store}>
+      <Provider>
         {this.props.children}
       </Provider>
     )
