@@ -1,0 +1,84 @@
+@import "taro-ui/dist/style/index.scss";
+.b-box {
+  box-sizing: border-box;
+}
+.flex-1 {
+  flex: 1;
+}
+.full-box {
+  height: 100vh;
+  width: 100vw;
+}
+.w-full-box {
+  width: 100vw;
+}
+.h-full-box {
+  height: 100vh;
+}
+.center-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.r-vc-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.r-ve-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+}
+.r-flex {
+  display: flex;
+  flex-direction: row;
+}
+.c-flex {
+  display: flex;
+  flex-direction: column;
+}
+.r-hsb-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.p-t-10 {
+  padding-top: 10px;
+}
+.p-t-20 {
+  padding-top: 20px;
+}
+.p-h-20 {
+  padding: 0 20px;
+}
+.p-h-50 {
+  padding: 0 50px;
+}
+.m-t-20 {
+  margin-top: 20px;
+}
+.m-t-50 {
+  margin-top: 50px;
+}
+.m-t-100 {
+  margin-top: 100px;
+}
+.text_title_1 {
+  font-size: 42px;
+  font-weight: 500;
+  color: #000;
+}
+.text_info {
+  color: #ccc;
+}
+.text_primary {
+  color: #6190e8
+}
+.text_size_28 {
+  font-size: 28px;
+}
+.text_size_24 {
+  font-size: 24px;
+}

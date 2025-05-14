@@ -1,16 +1,16 @@
 import { Component, PropsWithChildren } from 'react'
 import {Provider} from 'mobx-react'
 import './app.scss'
-import UserInfo from "./store/userInfo";
 import Taro from "@tarojs/taro";
+import DeviceInfo from "./store/deviceInfo";
 
 class App extends Component<PropsWithChildren> {
   componentDidMount () {
-    if(!UserInfo.userInfo.username) {
-      Taro.redirectTo({
-        url: 'pages/login/login'
-      })
-    }
+    const { bottom, height } = Taro.getMenuButtonBoundingClientRect()
+    DeviceInfo.setDeviceInfo({
+      capsuleHeight: height,
+      capsuleBottom: bottom
+    })
   }
 
   componentDidShow () {}
