@@ -1,9 +1,11 @@
 import {Input, Text, View} from "@tarojs/components";
-import {AtAvatar, AtIcon} from 'taro-ui'
 import {memo, useState} from "react";
 import RowButton from "../../components/common/button";
 // import Taro from "@tarojs/taro";
 import UserInfo from "../../store/userInfo";
+import { Avatar } from '@nutui/nutui-react-taro'
+import { User } from '@nutui/icons-react-taro'
+import { IconFont } from '@nutui/icons-react-taro'
 
 interface LoginInputProps {
   iconName: string
@@ -33,7 +35,7 @@ const LoginInput = memo((props: LoginInputProps) => {
 
   return <View className={'w-full-box p-h-50 b-box m-t-50'}>
     <View className={'r-vc-flex p-h-20'} style={{border: '1px solid #ccc', borderRadius: 6, height: 42}}>
-      <AtIcon value={iconName} size={20} color={'#ccc'}></AtIcon>
+      <IconFont name={'phone'} size={20} />
       <View className={'p-h-20 flex-1'}>
         <Input
           name='value'
@@ -77,7 +79,7 @@ const Login = () => {
   }
   return (
     <View className='full-box center-flex c-flex'>
-      <AtAvatar circle text={'logo'}></AtAvatar>
+      <Avatar icon={<User />} shape="round" />
       <View className={'text_title_1 m-t-20'}>
         欢迎登录
       </View>

@@ -32,7 +32,7 @@ export default defineConfig<'vite'>(async (merge, {  }) => {
         pxtransform: {
           enable: true,
           config: {
-
+            selectorBlackList: ['nut-']
           }
         },
         cssModules: {
